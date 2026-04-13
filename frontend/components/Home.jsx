@@ -79,6 +79,9 @@ const Home = () => {
                                     <p className="text-sm text-gray-500 mt-1">
                                         Columns: {record.no_of_columns}</p>
                                 </div>
+                                 <button 
+                                        className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-md font-semibold transition-all active:scale-95 shadow-sm"
+                                      >Download</button>
                                 <button
                                     onClick={() => deleteRecord(record._id)}
                                     className="ml-4 bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-lg text-md font-semibold transition-all active:scale-95 shadow-sm"
