@@ -8,7 +8,8 @@ try{
     const saved = await record.create(req.body)
     return res.status(201).send({message:"data submitted",data:saved})
 }
-catch(err){
+catch(err)
+{
  return res.status(500).send({message:"data error"})
 }
 }
@@ -21,6 +22,25 @@ const getrecord=async(req,res)=>{
         return res.status(500).send({message:"error"})
     }
 }
+const getsinglerecord = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const singleRecord = await record.findById(id);
+
+    if (!singleRecord) {
+      return res.status(404).send({
+        message: "Record not found",
+      });
+    }
+
+    return res.status(200).send(singleRecord);
+  } catch (err) {
+    return res.status(500).send({
+      message: "Error fetching record",
+    });
+  }
+};
 const deleterecord = async (req, res) => {
     try {
         const { id } = req.params; 
@@ -30,4 +50,4 @@ const deleterecord = async (req, res) => {
         return res.status(500).send({ message: "Error deleting record" });
     }
 };
-module.exports={postrecord,getrecord,deleterecord}
+module.exports={postrecord,getrecord,deleterecord,getsinglerecord}
