@@ -9,10 +9,12 @@ const admin=require('../controllers/admin.controllers')
 //user authentication
 router.post('/userRegister',user.UserRegister)
 router.post('/userlogin',user.UserLogin)
+router.get('/profile', user.getProfile);
 
 //admin authentication
 router.post('/adminRegister',admin.AdminRegister)
 router.post('/adminlogin',admin.AdminLogin)
+router.get('/adminprofile', admin.getAdminProfile);
 
 //feedback
 router.post('/feedpost',feedback.postfeed)

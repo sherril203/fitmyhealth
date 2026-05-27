@@ -1,11 +1,9 @@
 "use client";
 import { TiDocumentAdd } from "react-icons/ti";
-import { AiOutlineDownload } from "react-icons/ai";
-
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-
-const Records = () => {
+import { AiOutlineDownload } from "react-icons/ai";
+const MyRecords = () => {
   const [data, setData] = useState([]); 
   const [loading, setLoading] = useState(true);
 
@@ -57,7 +55,7 @@ const Records = () => {
         <p className='font-bold text-2xl'>Records</p>
         <Link href="/records/recordform">
           <button className='px-5 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-xl font-semibold flex items-center gap-2'>
-           <TiDocumentAdd className="text-2xl"/> Create Record
+          <TiDocumentAdd className="text-2xl"/>  Create Record
           </button>
         </Link>
       </div>
@@ -82,7 +80,7 @@ const Records = () => {
       </div>
        <button 
         className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-md font-semibold transition-all active:scale-95 shadow-sm flex items-center gap-2"
-      > <AiOutlineDownload className="text-2xl"/>Download</button>
+      > <AiOutlineDownload className="text-2xl"/> Download</button>
       <button 
         onClick={() => deleteRecord(record._id)}
         className="ml-4 bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-lg text-md font-semibold transition-all active:scale-95 shadow-sm"
@@ -101,4 +99,4 @@ const Records = () => {
 
 };
 
-export default Records;
+export default MyRecords;
