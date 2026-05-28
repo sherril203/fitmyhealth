@@ -1,6 +1,9 @@
 "use client"
 import { React, useState, useEffect } from 'react'
 import Link from "next/link"
+import { TiDocumentAdd } from "react-icons/ti";
+import { AiOutlineDownload } from "react-icons/ai";
+import { FaRegTrashCan } from "react-icons/fa6";
 const Home = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -54,10 +57,17 @@ const Home = () => {
                 <p>We will suggest suggestion to improve your health and fitness</p>
             </div>
 
-            <div className='flex gap-3'>
-                <p className='p-3 font-bold text-2xl'>new record</p>
-                <button className='border-2 p-3  bg-blue-500 text-white rounded-2xl hover:bg-blue-600'><Link href="/records/recordform">Create Record</Link></button>
-            </div>
+          <div className="flex gap-3 items-center">
+  <p className="p-3 font-bold text-2xl">New Record</p>
+
+  <Link
+    href="/records/recordform"
+    className="border-2 px-5 py-2.5 bg-blue-500 text-white rounded-2xl hover:bg-blue-600 flex items-center gap-2"
+  >
+    <TiDocumentAdd className="text-2xl" />
+    <span>Create Record</span>
+  </Link>
+</div>
             <div>
                 <p className='font-bold p-3 text-2xl'>Recent Records</p>
             </div>
@@ -80,8 +90,8 @@ const Home = () => {
                                         Columns: {record.no_of_columns}</p>
                                 </div>
                                  <button 
-                                        className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-md font-semibold transition-all active:scale-95 shadow-sm"
-                                      >Download</button>
+                                        className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg text-md font-semibold transition-all active:scale-95 shadow-sm flex items-center gap-2"
+                                      ><AiOutlineDownload className="text-2xl"/> Download</button>
                                 <button
                                     onClick={() => deleteRecord(record._id)}
                                     className="ml-4 bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-lg text-md font-semibold transition-all active:scale-95 shadow-sm"
